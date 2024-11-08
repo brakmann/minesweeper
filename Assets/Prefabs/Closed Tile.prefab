@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1542513534273414038}
   - component: {fileID: 7609014693770825992}
   - component: {fileID: 7859541069906311441}
+  - component: {fileID: 7413380406388278569}
   m_Layer: 0
-  m_Name: Tile Not Pressed
+  m_Name: Closed Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,3 +135,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.07, y: 0.07}
   m_EdgeRadius: 0
+--- !u!114 &7413380406388278569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287581956158563252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49962ffeb60644f60bb6be6cfc8c562d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notFlaggedImage: {fileID: -1276753764, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  flaggedImage: {fileID: -1229929296, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
