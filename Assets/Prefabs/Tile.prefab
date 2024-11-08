@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &287581956158563252
+--- !u!1 &2153923770106723923
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1542513534273414038}
-  - component: {fileID: 7609014693770825992}
-  - component: {fileID: 7859541069906311441}
-  - component: {fileID: 7413380406388278569}
+  - component: {fileID: 2732646332849681928}
+  - component: {fileID: 3580080021252392463}
+  - component: {fileID: 7595859789354837544}
+  - component: {fileID: 1926954486779961091}
   m_Layer: 0
-  m_Name: Closed Tile
+  m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1542513534273414038
+--- !u!4 &2732646332849681928
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287581956158563252}
+  m_GameObject: {fileID: 2153923770106723923}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.19118063, y: -0.030221874, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7609014693770825992
+--- !u!212 &3580080021252392463
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287581956158563252}
+  m_GameObject: {fileID: 2153923770106723923}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -89,13 +89,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7859541069906311441
+--- !u!114 &7595859789354837544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153923770106723923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e268cf48b8e443759901feee764c7ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  empty0Image: {fileID: -4478787473528335380, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  empty1Image: {fileID: 559937659, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  empty2Image: {fileID: 787723738, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  empty3Image: {fileID: 1483182081, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  empty4Image: {fileID: 28069771, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  empty5Image: {fileID: -1765062616, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  empty6Image: {fileID: -85251830, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  empty7Image: {fileID: -624100256, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  empty8Image: {fileID: -1940365681, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  bombImage: {fileID: 655574488, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  notFlaggedImage: {fileID: -1276753764, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  flaggedImage: {fileID: -1229929296, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+--- !u!61 &1926954486779961091
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287581956158563252}
+  m_GameObject: {fileID: 2153923770106723923}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -135,17 +159,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.07, y: 0.07}
   m_EdgeRadius: 0
---- !u!114 &7413380406388278569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287581956158563252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49962ffeb60644f60bb6be6cfc8c562d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notFlaggedImage: {fileID: -1276753764, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
-  flaggedImage: {fileID: -1229929296, guid: 10dded204a6a54496bfb415255168d8a, type: 3}

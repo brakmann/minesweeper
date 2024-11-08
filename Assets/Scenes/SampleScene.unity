@@ -350,7 +350,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1631383160}
   - component: {fileID: 1631383159}
-  - component: {fileID: 1631383158}
   m_Layer: 0
   m_Name: Field Spawner
   m_TagString: Untagged
@@ -358,21 +357,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1631383158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631383157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d33bd5e92d2b4375bffb92d3c8df7f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notPressedTile: {fileID: 287581956158563252, guid: 2823a292969f74aeb86a788f46c27d87, type: 3}
-  startingCoordinate: {x: -1, y: 0}
-  tileSize: 0.07
 --- !u!114 &1631383159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,9 +369,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d33bd5e92d2b4375bffb92d3c8df7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notPressedTile: {fileID: 0}
+  closedTilePrefab: {fileID: 287581956158563252, guid: 2823a292969f74aeb86a788f46c27d87, type: 3}
+  openedTilePrefab: {fileID: 6388080389604462384, guid: 88c5c6ece210a4566aa9cc5b1de8a1b1, type: 3}
   startingCoordinate: {x: 0, y: 0}
-  tileSize: 0.01
+  bombsNumber: 20
 --- !u!4 &1631383160
 Transform:
   m_ObjectHideFlags: 0
