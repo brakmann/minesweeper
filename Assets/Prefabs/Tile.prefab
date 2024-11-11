@@ -110,7 +110,7 @@ MonoBehaviour:
   empty6Image: {fileID: -85251830, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
   empty7Image: {fileID: -624100256, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
   empty8Image: {fileID: -1940365681, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
-  bombImage: {fileID: 655574488, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
+  bombImage: {fileID: 1756205411, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
   notFlaggedImage: {fileID: -1276753764, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
   flaggedImage: {fileID: -1229929296, guid: 10dded204a6a54496bfb415255168d8a, type: 3}
 --- !u!61 &1926954486779961091
