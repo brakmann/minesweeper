@@ -50,6 +50,7 @@ public class Tile : MonoBehaviour
         }            
     }
     void Open() {
+        isOpened = true;
         if (hasBomb) {
             GetComponent<SpriteRenderer>().sprite = bombImage;
         } else {
