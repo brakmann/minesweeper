@@ -6,6 +6,7 @@ public class Tile : MonoBehaviour
     private bool isFlagged = false;
     private bool hasBomb;
     private int bombsAround;
+    private GameManager gameManager;
     [SerializeField] Sprite empty0Image;
     [SerializeField] Sprite empty1Image;
     [SerializeField] Sprite empty2Image;
@@ -19,16 +20,19 @@ public class Tile : MonoBehaviour
     [SerializeField] Sprite notFlaggedImage;
     [SerializeField] Sprite flaggedImage;
 
+    void Start() {
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+    }
     void OnMouseOver(){
-        //Left click
-        if(Input.GetMouseButtonDown(0)) {
-            if (!isOpened)
+        if (gameManager.IsPlayable() && !isOpened) {
+            //Left click
+            if(Input.GetMouseButtonDown(0)) {
                 Open();
-        }
-        //Right click
-        if(Input.GetMouseButtonDown(1)) {
-            if (!isOpened)
+            }
+            //Right click
+            if(Input.GetMouseButtonDown(1)) {
                 ToggleFlag();
+            }
         } 
     }
 
@@ -53,6 +57,7 @@ public class Tile : MonoBehaviour
         isOpened = true;
         if (hasBomb) {
             GetComponent<SpriteRenderer>().sprite = bombImage;
+            gameManager.FailGame();
         } else {
         switch (bombsAround) {
             case 0: 
