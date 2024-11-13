@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.Events;
 public class Tile : MonoBehaviour
 {
     private bool isOpened = false;
@@ -19,14 +19,15 @@ public class Tile : MonoBehaviour
     [SerializeField] Sprite bombImage;
     [SerializeField] Sprite notFlaggedImage;
     [SerializeField] Sprite flaggedImage;
-
+    public static event UnityAction TileFlagged;
+    public static event UnityAction TileUnflagged;
     void Start() {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
     void OnMouseOver(){
         if (gameManager.IsPlayable() && !isOpened) {
             //Left click
-            if(Input.GetMouseButtonDown(0)) {
+            if(Input.GetMouseButtonDown(0) && !isFlagged) {
                 Open();
             }
             //Right click
@@ -35,7 +36,6 @@ public class Tile : MonoBehaviour
             }
         } 
     }
-
     //Inizialization
     public void SetBomb () {
         hasBomb = true;
@@ -43,14 +43,15 @@ public class Tile : MonoBehaviour
     public void SetBombsAround (int bombsNumber) {
         bombsAround = bombsNumber;
     }
-
     //Game methods
     void ToggleFlag() {
         isFlagged = !isFlagged;
         if (isFlagged) {
             GetComponent<SpriteRenderer>().sprite = flaggedImage;
+            TileFlagged?.Invoke();
         } else {
             GetComponent<SpriteRenderer>().sprite = notFlaggedImage;
+            TileUnflagged?.Invoke();
         }            
     }
     void Open() {
@@ -59,35 +60,35 @@ public class Tile : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = bombImage;
             gameManager.FailGame();
         } else {
-        switch (bombsAround) {
-            case 0: 
-                GetComponent<SpriteRenderer>().sprite = empty0Image;
-                break;
-            case 1: 
-                GetComponent<SpriteRenderer>().sprite = empty1Image;
-                break;
-            case 2: 
-                GetComponent<SpriteRenderer>().sprite = empty2Image;
-                break;
-            case 3: 
-                GetComponent<SpriteRenderer>().sprite = empty3Image;
-                break;
-            case 4: 
-                GetComponent<SpriteRenderer>().sprite = empty4Image;
-                break;
-            case 5: 
-                GetComponent<SpriteRenderer>().sprite = empty5Image;
-                break;
-            case 6: 
-                GetComponent<SpriteRenderer>().sprite = empty6Image;
-                break;
-            case 7: 
-                GetComponent<SpriteRenderer>().sprite = empty7Image;
-                break;
-            case 8: 
-                GetComponent<SpriteRenderer>().sprite = empty8Image;
-                break;
-        }
+            switch (bombsAround) {
+                case 0: 
+                    GetComponent<SpriteRenderer>().sprite = empty0Image;
+                    break;
+                case 1: 
+                    GetComponent<SpriteRenderer>().sprite = empty1Image;
+                    break;
+                case 2: 
+                    GetComponent<SpriteRenderer>().sprite = empty2Image;
+                    break;
+                case 3: 
+                    GetComponent<SpriteRenderer>().sprite = empty3Image;
+                    break;
+                case 4: 
+                    GetComponent<SpriteRenderer>().sprite = empty4Image;
+                    break;
+                case 5: 
+                    GetComponent<SpriteRenderer>().sprite = empty5Image;
+                    break;
+                case 6: 
+                    GetComponent<SpriteRenderer>().sprite = empty6Image;
+                    break;
+                case 7: 
+                    GetComponent<SpriteRenderer>().sprite = empty7Image;
+                    break;
+                case 8: 
+                    GetComponent<SpriteRenderer>().sprite = empty8Image;
+                    break;
+            }
         }
     }
 }

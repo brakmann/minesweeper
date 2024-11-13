@@ -10,16 +10,14 @@ public class FieldSpawner : MonoBehaviour
     private HashSet<Point> bombPositions;
 
     [SerializeField] GameObject tilePrefab;
+    [SerializeField] public int bombsToSpawn;
     public Vector2 startingCoordinate = new Vector2(0, 0);
-    public int bombsToSpawn;
     public Point fieldSize = new Point{x = 10, y=10};
 
-    void Start()
-    {
-        SpawnField(bombsToSpawn, fieldSize, startingCoordinate);
+    void Start() {
+        SpawnField(bombsToSpawn);
     }
-
-    void SpawnField(int bombsNumber, Point fieldSize, Vector2 startingCoordinate) {
+    public void SpawnField(int bombsNumber) {
         HashSet<Point> bombsLocation = RandomizeBombsLocation(bombsNumber, fieldSize);
         //spawnObjects
         for (int i = 0; i<fieldSize.x; i++) {

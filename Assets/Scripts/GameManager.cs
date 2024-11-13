@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
         Failed, //When a bomb was clicked
         Win //When all empty tiles are opened
     }
-    private GameState gameState;    
+    private GameState gameState;
+    private FieldSpawner fieldSpawner;
+    private int flagsCounter;
     void Start() {
         gameState = GameState.NotStarted;
     }
