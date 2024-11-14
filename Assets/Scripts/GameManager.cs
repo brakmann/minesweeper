@@ -10,35 +10,52 @@ public class GameManager : MonoBehaviour
         Win //When all empty tiles are opened
     }
     private GameState gameState;
+    private int tilesToWin;
+    [SerializeField] FieldSpawner fieldSpawner;
     public static event UnityAction GameStarted;
     public static event UnityAction GameFinished;
     void Start() {
         gameState = GameState.NotStarted;
+        tilesToWin = fieldSpawner.fieldSize.x * fieldSpawner.fieldSize.y - fieldSpawner.bombsToSpawn;
+    }
+
+    void OnEnable(){
+        Tile.EmptyTileOpened += CheckTileOpenEvent;
+        Tile.BombOpened += FailGame;
+    }
+    void OnDisable(){
+        Tile.EmptyTileOpened -= CheckTileOpenEvent;
+        Tile.BombOpened -= FailGame;
     }
 
     public void FailGame() {
-        if (gameState == GameState.Started) {
+        if (IsPlayable()) {
             gameState = GameState.Failed;
             GameFinished?.Invoke();
         }
     }
-    //TBD timer development
     public void StartGame() {
-        if (gameState == GameState.NotStarted) {
-            gameState = GameState.Started;
-            GameStarted?.Invoke();
-        }
-        
+        gameState = GameState.Started;
+        GameStarted?.Invoke();
     }
-    //TBD maybe GameManager should set this state by himself
-    public void WinGame() {
+    private void CheckTileOpenEvent(){
+        tilesToWin--;
+        if (gameState == GameState.NotStarted) {
+            StartGame();
+        }
+        if (gameState == GameState.Started && tilesToWin == 0) {
+            WinGame();
+        }
+    }
+    private void WinGame() {
         if (gameState == GameState.Started) {
             gameState = GameState.Win;
             GameFinished?.Invoke();
+            Debug.Log("win");
         }
-        
     }
     public bool IsPlayable() {
         return (gameState == GameState.NotStarted || gameState == GameState.Started);
     }
+
 }

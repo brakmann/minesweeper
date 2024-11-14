@@ -21,6 +21,9 @@ public class Tile : MonoBehaviour
     [SerializeField] Sprite flaggedImage;
     public static event UnityAction TileFlagged;
     public static event UnityAction TileUnflagged;
+    public static event UnityAction EmptyTileOpened;
+    public static event UnityAction BombOpened;
+
     void Start() {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
@@ -58,9 +61,9 @@ public class Tile : MonoBehaviour
         isOpened = true;
         if (hasBomb) {
             GetComponent<SpriteRenderer>().sprite = bombImage;
-            gameManager.FailGame();
+            BombOpened.Invoke();
         } else {
-            gameManager.StartGame(); //how to call it only one time?
+            EmptyTileOpened.Invoke();
             switch (bombsAround) {
                 case 0: 
                     GetComponent<SpriteRenderer>().sprite = empty0Image;

@@ -12,7 +12,7 @@ public class FieldSpawner : MonoBehaviour
     [SerializeField] GameObject tilePrefab;
     [SerializeField] public int bombsToSpawn;
     public Vector2 startingCoordinate = new Vector2(0, 0);
-    public Point fieldSize = new Point{x = 10, y=10};
+    public Point fieldSize = new Point{x = 2, y = 2};
 
     void Start() {
         SpawnField(bombsToSpawn);
