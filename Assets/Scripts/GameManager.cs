@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,22 +10,33 @@ public class GameManager : MonoBehaviour
         Win //When all empty tiles are opened
     }
     private GameState gameState;
-    private FieldSpawner fieldSpawner;
-    private int flagsCounter;
+    public static event UnityAction GameStarted;
+    public static event UnityAction GameFinished;
     void Start() {
         gameState = GameState.NotStarted;
     }
 
     public void FailGame() {
-        gameState = GameState.Failed;
+        if (gameState == GameState.Started) {
+            gameState = GameState.Failed;
+            GameFinished?.Invoke();
+        }
     }
     //TBD timer development
     public void StartGame() {
-        gameState = GameState.Started;
+        if (gameState == GameState.NotStarted) {
+            gameState = GameState.Started;
+            GameStarted?.Invoke();
+        }
+        
     }
     //TBD maybe GameManager should set this state by himself
     public void WinGame() {
-        gameState = GameState.Win;
+        if (gameState == GameState.Started) {
+            gameState = GameState.Win;
+            GameFinished?.Invoke();
+        }
+        
     }
     public bool IsPlayable() {
         return (gameState == GameState.NotStarted || gameState == GameState.Started);

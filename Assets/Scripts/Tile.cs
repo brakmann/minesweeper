@@ -60,6 +60,7 @@ public class Tile : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = bombImage;
             gameManager.FailGame();
         } else {
+            gameManager.StartGame(); //how to call it only one time?
             switch (bombsAround) {
                 case 0: 
                     GetComponent<SpriteRenderer>().sprite = empty0Image;
